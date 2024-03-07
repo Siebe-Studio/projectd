@@ -1,13 +1,13 @@
-import { getServerAuthSession } from "~/server/auth";
-import { api } from "~/trpc/server";
+import Link from "next/link";
+import { Button } from "~/components/ui/button";
 
 export default async function Home() {
-  const hello = await api.post.hello.query({ text: "from tRPC" });
-  const session = await getServerAuthSession();
-
   return (
-    <main className="flex min-h-screen items-center justify-center">
-      <p className="text-3xl">the Dashboard</p>
+    <main className="flex min-h-screen flex-col items-center justify-center">
+      <p className="text-3xl">Dashboard</p>
+      <Button>
+        <Link href={`/dashboard/producten`}>producten</Link>
+      </Button>
     </main>
   );
 }

@@ -8,7 +8,7 @@ export default function RootLayout({
 }) {
   return (
     <main className="flex w-full gap-2">
-      <Sidebar />
+      {/* <Sidebar /> */}
       <div className="flex-1">{children}</div>
     </main>
   );

@@ -1,10 +1,10 @@
-import { Button } from "../ui/button"
+"use client";
 
+import { Button } from "../ui/button";
+import { signIn } from "next-auth/react";
 
 const SignInButton = () => {
-  return (
-    <div>SignInButton</div>
-  )
-}
+  return <Button onClick={() => signIn()}>Sign in</Button>;
+};
 
-export default SignInButton
+export default SignInButton;
