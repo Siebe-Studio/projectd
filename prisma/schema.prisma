@@ -14,6 +14,9 @@ datasource db {
     url      = env("DATABASE_URL")
 }
 
+//TODO Implement Location related things to history
+
+
 // automatically added
 model Post {
     id        Int      @id @default(autoincrement())
@@ -63,7 +66,7 @@ model User {
     accounts      Account[]
     sessions      Session[]
     posts         Post[]
-    product       Product[]
+    history       History[]
 }
 
 model VerificationToken {
@@ -75,22 +78,85 @@ model VerificationToken {
 }
 
 model Product {
-    id          String    @id @default(cuid())
-    name        String
-    description String?
-    categoryId  String?
-    category    Category? @relation(fields: [categoryId], references: [id])
+    id   String @id @default(cuid())
+    name String
 
-    createdAt DateTime @default(now())
+    item Item?
 
-    createdBy   User   @relation(fields: [createdById], references: [id])
-    createdById String
+    category   Category? @relation(fields: [categoryId], references: [id])
+    categoryId Int?
+
+    @@index([name])
+}
+
+model Item {
+    id           Int    @id @default(autoincrement())
+    serialNumber String @unique @default(cuid())
+
+    history History[]
+
+    product   Product @relation(fields: [productId], references: [id])
+    productId String  @unique
+
+    location   Location? @relation(fields: [locationId], references: [id])
+    locationId Int?      @unique
+
+    @@index([serialNumber])
 }
 
 model Category {
-    id          String @id @default(cuid())
-    name        String
-    description String
+    id   Int    @id @default(autoincrement())
+    name String
 
     products Product[]
+
+    @@index([name])
+}
+
+model History {
+    id          Int     @id @default(autoincrement())
+    title       String
+    description String?
+
+    updatedAt  DateTime @default(now())
+    editedBy   User?    @relation(fields: [editedById], references: [id])
+    editedById String?
+
+    item   Item @relation(fields: [itemId], references: [id])
+    itemId Int
+
+    @@index([title])
+}
+
+model Location {
+    id     Int     @id @default(autoincrement())
+    name   String
+    adress Adress?
+    items  Item[]
+
+    locationType   LocationType @relation(fields: [locationTypeId], references: [id])
+    locationTypeId Int
+
+    @@index([name])
+}
+
+model Adress {
+    id         Int      @id @default(autoincrement())
+    adress     String
+    postal     String
+    city       String
+    phone      String
+    location   Location @relation(fields: [locationId], references: [id])
+    locationId Int      @unique
+
+    @@index([adress, city, postal])
+}
+
+model LocationType {
+    id   Int    @id @default(autoincrement())
+    type String
+
+    Location Location[]
+
+    @@index([type])
 }
