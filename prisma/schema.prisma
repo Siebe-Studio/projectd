@@ -133,7 +133,7 @@ model Location {
     name   String
     adress Adress?
     items  Item[]
-
+    vehicles Vehicle[]
     locationType   LocationType @relation(fields: [locationTypeId], references: [id])
     locationTypeId Int
 
@@ -159,4 +159,13 @@ model LocationType {
     Location Location[]
 
     @@index([type])
+}
+
+model Vehicle {
+    id      Int @id @default(autoincrement())
+    location    Location @relation(fields: [location_id], references: [id])
+    location_id   Int  @unique
+    plate   String
+    desciption String?
+    @@index([plate])
 }
