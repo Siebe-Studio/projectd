@@ -1,11 +1,7 @@
 import { getServerAuthSession } from "~/server/auth";
-
 import SignInButton from "~/components/auth/SignInButton";
-import SignOutButton from "~/components/auth/SignOutButton";
+import { Dashboard } from "~/components/dashboard/Dashboard";
 
-import { api } from "~/trpc/server";
-import { Button } from "~/components/ui/button";
-import Link from "next/link";
 
 export default async function Home() {
   const session = await getServerAuthSession();
@@ -20,12 +16,8 @@ export default async function Home() {
   }
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center gap-6">
-      <p className="text-3xl">Hello {session.user.name}</p>
-      <Button>
-        <Link href={`/dashboard`}>Bekijk Dashboard</Link>
-      </Button>
-      <SignOutButton />
-    </main>
+    <div className="w-full flex items-center justify-center">
+      <p className="text-3xl">Ingelogd!!!!</p>
+    </div>
   );
 }
