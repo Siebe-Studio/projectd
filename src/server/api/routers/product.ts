@@ -40,6 +40,21 @@ export const productRouter = createTRPCRouter({
       });
     }),
 
+  getProducts: protectedProcedure
+    .query(async ({ ctx }) => {
+      return ctx.db.product.findMany(
+      );
+    }),
+  
+  getProductsById: protectedProcedure
+    .input(z.string())
+    .query(async ({ ctx, input }) => {
+      return ctx.db.product.findUnique({
+        where: {
+          id: input,
+        },
+      });
+    }),
   
   getCategories: protectedProcedure
     .query(async ({ ctx }) => {

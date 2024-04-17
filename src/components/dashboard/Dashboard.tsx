@@ -141,7 +141,7 @@ export function Dashboard({ children }: { children: React.ReactNode }) {
         </header>
         <main className="flex flex-1 flex-col gap-4 p-4 lg:gap-6 lg:p-6">
           <MenuTitle />
-          <div className="flex flex-1 items-center justify-center rounded-lg border border-dashed shadow-sm">
+          <div className="flex flex-1 px-2 py-2 rounded-lg border border-dashed shadow-sm">
             {children}
           </div>
         </main>

@@ -9,7 +9,6 @@ import { Button } from "~/components/ui/button";
 import {
   Form,
   FormControl,
-  FormDescription,
   FormField,
   FormItem,
   FormLabel,
@@ -20,9 +19,7 @@ import { Textarea } from "~/components/ui/textarea";
 import {
   Select,
   SelectContent,
-  SelectGroup,
   SelectItem,
-  SelectLabel,
   SelectTrigger,
   SelectValue,
 } from "~/components/ui/select";
@@ -84,7 +81,7 @@ export default function CreateProduct() {
   }
 
   return (
-    <Card className="md:min-w-[400px]">
+    <Card className="md:min-w-[400px] h-fit">
       <CardHeader>
         <CardTitle>Product Toevoegen</CardTitle>
       </CardHeader>
