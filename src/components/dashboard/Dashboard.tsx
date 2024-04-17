@@ -32,8 +32,9 @@ const NavItems: NavItem[] = [
   },
   {
     title: "Voertuigen",
+    href: "dashboard/voertuigen",
     icon: Bus,
-    badge: 6,
+    badge: 8,
   },
   {
     title: "Producten",
