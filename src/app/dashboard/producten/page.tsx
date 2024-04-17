@@ -1,5 +1,6 @@
 import { getServerAuthSession } from "~/server/auth";
 import SignInButton from "~/components/auth/SignInButton";
+import CreateProduct from "~/components/products/create-product";
 
 export default async function Home() {
   const session = await getServerAuthSession();
@@ -14,8 +15,8 @@ export default async function Home() {
   }
 
   return (
-    <div className="w-full flex items-center justify-center">
-      <p className="text-3xl">Producten</p>
+    <div className="w-full flex flex-col items-center justify-center">
+      <CreateProduct />
     </div>
   );
 }

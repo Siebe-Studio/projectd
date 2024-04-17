@@ -11,11 +11,14 @@ import {
 import { Button } from "~/components/ui/button";
 import { CircleUser } from "lucide-react";
 import { signOut } from "next-auth/react";
+import { useSession } from "next-auth/react";
 
-const AccountButton = ({ name }: { name: string }) => {
+const AccountButton = () => {
+  const { data: session } = useSession();
+
   return (
     <div className="flex items-center justify-center gap-3">
-      <p>{name}, ADMIN</p>
+      <p>{session?.user.name}, ADMIN</p>
       <DropdownMenu>
         <DropdownMenuTrigger asChild>
           <Button variant="secondary" size="icon" className="rounded-full">

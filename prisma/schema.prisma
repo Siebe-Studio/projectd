@@ -16,7 +16,6 @@ datasource db {
 
 //TODO Implement Location related things to history
 
-
 // automatically added
 model Post {
     id        Int      @id @default(autoincrement())
@@ -80,7 +79,8 @@ model VerificationToken {
 model Product {
     id   String @id @default(cuid())
     name String
-
+    description String?
+    
     item Item?
 
     category   Category? @relation(fields: [categoryId], references: [id])
@@ -129,11 +129,11 @@ model History {
 }
 
 model Location {
-    id     Int     @id @default(autoincrement())
-    name   String
-    adress Adress?
-    items  Item[]
-    vehicles Vehicle[]
+    id             Int          @id @default(autoincrement())
+    name           String
+    adress         Adress?
+    items          Item[]
+    vehicles       Vehicle[]
     locationType   LocationType @relation(fields: [locationTypeId], references: [id])
     locationTypeId Int
 
@@ -162,10 +162,11 @@ model LocationType {
 }
 
 model Vehicle {
-    id      Int @id @default(autoincrement())
+    id          Int      @id @default(autoincrement())
     location    Location @relation(fields: [location_id], references: [id])
-    location_id   Int  @unique
-    plate   String
-    desciption String?
+    location_id Int      @unique
+    plate       String
+    desciption  String?
+
     @@index([plate])
 }
