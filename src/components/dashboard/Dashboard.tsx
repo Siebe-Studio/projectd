@@ -7,6 +7,7 @@ import {
   Package2,
   ShoppingCart,
   Bus,
+  MapPin,
   type LucideIcon,
 } from "lucide-react";
 
@@ -32,13 +33,19 @@ const NavItems: NavItem[] = [
   },
   {
     title: "Voertuigen",
+    href: "/dashboard/voertuigen",
     icon: Bus,
-    badge: 6,
+    badge: 8,
   },
   {
     title: "Producten",
-    href: "dashboard/producten",
+    href: "/dashboard/producten",
     icon: Package,
+  },
+  {
+    title: "Locaties",
+    href: "/dashboard/locaties",
+    icon: MapPin
   },
   {
     title: "Analytica",
