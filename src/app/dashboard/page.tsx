@@ -1,7 +1,5 @@
 import { getServerAuthSession } from "~/server/auth";
 import SignInButton from "~/components/auth/SignInButton";
-import { Dashboard } from "~/components/dashboard/Dashboard";
-
 
 export default async function Home() {
   const session = await getServerAuthSession();

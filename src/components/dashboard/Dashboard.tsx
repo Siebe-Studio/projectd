@@ -19,6 +19,7 @@ import MenuTitle from "./MenuTitle";
 
 interface NavItem {
   title: string;
+  href?: string;
   icon: LucideIcon;
   badge?: number;
 }
@@ -27,6 +28,7 @@ const NavItems: NavItem[] = [
   {
     title: "Dashboard",
     icon: Home,
+    href: "/dashboard",
   },
   {
     title: "Voertuigen",
@@ -35,6 +37,7 @@ const NavItems: NavItem[] = [
   },
   {
     title: "Producten",
+    href: "dashboard/producten",
     icon: Package,
   },
   {
@@ -65,7 +68,7 @@ export function Dashboard({ children }: { children: React.ReactNode }) {
               {NavItems.map((item) => (
                 <Link
                   key={item.title}
-                  href="#"
+                  href={item.href ?? "#"}
                   className="flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all hover:text-primary"
                 >
                   <item.icon className="h-4 w-4" />

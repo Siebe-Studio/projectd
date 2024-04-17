@@ -3,7 +3,6 @@ import { getServerAuthSession } from "~/server/auth";
 import SignInButton from "~/components/auth/SignInButton";
 import SignOutButton from "~/components/auth/SignOutButton";
 
-import { api } from "~/trpc/server";
 import { Button } from "~/components/ui/button";
 import Link from "next/link";
 
