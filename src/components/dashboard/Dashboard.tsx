@@ -7,6 +7,7 @@ import {
   Package2,
   ShoppingCart,
   Bus,
+  MapPin,
   type LucideIcon,
 } from "lucide-react";
 
@@ -32,14 +33,19 @@ const NavItems: NavItem[] = [
   },
   {
     title: "Voertuigen",
-    href: "dashboard/voertuigen",
+    href: "/dashboard/voertuigen",
     icon: Bus,
     badge: 8,
   },
   {
     title: "Producten",
-    href: "dashboard/producten",
+    href: "/dashboard/producten",
     icon: Package,
+  },
+  {
+    title: "Locaties",
+    href: "/dashboard/locaties",
+    icon: MapPin
   },
   {
     title: "Analytica",
@@ -147,7 +153,7 @@ export function Dashboard({ children }: { children: React.ReactNode }) {
         </header>
         <main className="flex flex-1 flex-col gap-4 p-4 lg:gap-6 lg:p-6">
           <MenuTitle />
-          <div className="flex flex-1 items-center justify-center rounded-lg border border-dashed shadow-sm">
+          <div className="flex flex-1 rounded-lg border border-dashed shadow-sm">
             {children}
           </div>
         </main>
