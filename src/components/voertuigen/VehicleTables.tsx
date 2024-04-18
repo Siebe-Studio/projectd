@@ -7,7 +7,7 @@ const invoices = [
   {
         plate: "1",
         vehicle_id: "001",
-        description: "Schoonmaak beurd",
+        description: "Schoonmaak beurt",
         location: "Rotterdam",
   },
   {
